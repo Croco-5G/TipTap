@@ -14,7 +14,7 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <!-- firebase-auth removed — not used -->
 
     <script>
         // منع ومضة اللون الأبيض المزعجة فور فتح الموقع
@@ -824,7 +824,7 @@
             <div style="display:flex; gap:8px; align-items:center;">
                 <input type="number" id="cbAmount" placeholder="0.00" style="flex:1; min-width:0;">
                 <select id="cbCurrencyLabel" style="width:90px; font-weight:800; font-size:14px; color:var(--primary);">
-                    <option value="₪">₪</option>
+                    <option value="£">£</option>
                     <option value="$">$</option>
                 </select>
             </div>
@@ -887,7 +887,7 @@
             <div style="display:flex; gap:8px; align-items:center;">
                 <input type="number" id="dlvAmount" placeholder="0.00" style="flex:1; min-width:0;">
                 <select id="dlvCurrencyLabel" style="width:90px; font-weight:800; font-size:14px; color:var(--primary);">
-                    <option value="₪">₪ شيكل</option>
+                    <option value="£">£ جنيه</option>
                     <option value="$">$ دولار</option>
                 </select>
             </div>
@@ -1004,7 +1004,7 @@
     </div>
     <div class="stat-card" id="statCardTodayProfits">
         <div class="stat-icon icon-bg-success"><i class="fas fa-chart-line"></i></div>
-        <div><label>أرباح اليوم</label><div id="statTodayProfits" style="font-size: 22px; font-weight: 800; color:var(--success);">0 ₪</div></div>
+        <div><label>أرباح اليوم</label><div id="statTodayProfits" style="font-size: 22px; font-weight: 800; color:var(--success);">0 £</div></div>
     </div>
     <div class="stat-card" id="statCardMonthSales">
         <div class="stat-icon" style="background:rgba(168,85,247,0.15); color:#a855f7;"><i class="fas fa-calendar-alt"></i></div>
@@ -1012,11 +1012,11 @@
     </div>
     <div class="stat-card" id="statCardMonthProfits">
         <div class="stat-icon icon-bg-success"><i class="fas fa-hand-holding-usd"></i></div>
-        <div><label>أرباح هذا الشهر</label><div id="statMonthProfits" style="font-size: 22px; font-weight: 800; color:var(--success);">0 ₪</div></div>
+        <div><label>أرباح هذا الشهر</label><div id="statMonthProfits" style="font-size: 22px; font-weight: 800; color:var(--success);">0 £</div></div>
     </div>
 <div class="stat-card hidden" id="statCardEmployeeBonus">
         <div class="stat-icon" style="background:rgba(234,179,8,0.15); color:#eab308;"><i class="fas fa-coins"></i></div>
-        <div><label>زيادة الراتب (هذا الشهر)</label><div id="statEmployeeBonus" style="font-size: 22px; font-weight: 800; color:#eab308;">0 ₪</div></div>
+        <div><label>زيادة الراتب (هذا الشهر)</label><div id="statEmployeeBonus" style="font-size: 22px; font-weight: 800; color:#eab308;">0 £</div></div>
     </div>
 </div>
 
@@ -1032,7 +1032,7 @@
         </div>
         <div class="grid-2">
             <div class="input-group"><label>رقم جوال العميل (اختياري)</label><input id="customerPhone" placeholder="201xxxxxxxxx أو +20xxxxxxxxxx" oninput="validatePhoneInput(this)" onblur="autoAddPlusPhone(this)" dir="ltr" style="text-align:right;"></div>
-            <div class="input-group"><label>المبلغ المدفوع من العميل</label><div style="display:flex; gap:10px"><input type="number" id="paidAmount" placeholder="0.00" style="flex: 1;"><select id="paidCurrency" style="width:110px; flex-shrink: 0;"><option value="₪">₪ شيكل</option><option value="$">$ دولار</option></select></div></div>
+            <div class="input-group"><label>المبلغ المدفوع من العميل</label><div style="display:flex; gap:10px"><input type="number" id="paidAmount" placeholder="0.00" style="flex: 1;"><select id="paidCurrency" style="width:110px; flex-shrink: 0;"><option value="£">£ جنيه</option><option value="$">$ دولار</option></select></div></div>
         </div>
         
         <div class="grid-2" style="margin-top:10px; padding-top:20px; border-top:1px dashed var(--border-color)">
@@ -1394,14 +1394,14 @@
                 <div style="width:38px; height:38px; border-radius:12px; background:rgba(234,179,8,0.15); display:flex; align-items:center; justify-content:center; color:#eab308; font-size:17px;"><i class="fas fa-coins"></i></div>
                 <div>
                     <div style="font-size:13px; color:var(--text-muted); font-weight:700;">زيادة راتب الموظف — هذا الشهر</div>
-                    <div id="empBonusAdminValue" style="font-size:22px; font-weight:900; color:#eab308;">0 ₪</div>
+                    <div id="empBonusAdminValue" style="font-size:22px; font-weight:900; color:#eab308;">0 £</div>
                 </div>
             </div>
             <div style="border-top:1px dashed var(--border-color); padding-top:14px;">
                 <label style="font-size:13px; color:var(--text-muted); font-weight:700; display:block; margin-bottom:8px;">تعديل الزيادة (زيادة أو خصم)</label>
                 <div style="display:flex; gap:8px; align-items:center;">
                     <input type="number" id="empBonusAdjust" placeholder="مثال: 10 أو -5" step="0.01" style="flex:1;">
-                    <span style="font-weight:800; color:var(--text-muted);">₪</span>
+                    <span style="font-weight:800; color:var(--text-muted);">£</span>
                     <button class="btn btn-warning" style="white-space:nowrap;" onclick="adjustEmployeeBonus()"><i class="fas fa-edit"></i> تطبيق</button>
                 </div>
                 <div style="font-size:11px; color:var(--text-muted); margin-top:6px;">أدخل رقم موجب للزيادة أو سالب للخصم</div>
@@ -1414,7 +1414,7 @@
                 <div style="display:flex; gap:10px;">
                     <input type="number" id="withdrawStore" placeholder="0.00" min="0" step="0.01" style="flex:1;">
                     <select id="withdrawCurrencySelect" style="width:110px; flex-shrink:0;">
-                        <option value="₪">₪ شيكل</option>
+                        <option value="£">£ جنيه</option>
                         <option value="$">$ دولار</option>
                     </select>
                 </div>
@@ -1530,14 +1530,14 @@
             <h3><i class="fas fa-exchange-alt" style="color:var(--primary)"></i> إعداد سعر الصرف</h3>
             <div class="inner-box" style="margin-bottom:20px;">
                 <div class="input-group">
-                    <label>سعر صرف الدولار الثابت (1$ = ؟ ₪)</label>
+                    <label>سعر صرف الدولار (1$ = ؟ جنيه مصري)</label>
                     <div style="display:flex; align-items:center; gap:10px">
                         <input type="number" id="setExchangeRate" placeholder="أدخل السعر (مثلاً 3.5)">
                         <button class="btn btn-primary" onclick="saveProfitSettings()">حفظ</button>
                     </div>
                 </div>
                 <div class="input-group" style="margin-top:15px;">
-                    <label>سعر الشيكل بالجنيه المصري (1 ₪ = ؟ جنيه)</label>
+                    <label>سعر الجنيه المصري مقابل الدولار (1$ = ؟ جنيه)</label>
                     <div style="display:flex; align-items:center; gap:10px">
                         <input type="number" id="setEgpRate" placeholder="مثلاً 13" step="0.01">
                         <button class="btn btn-primary" onclick="saveProfitSettings()">حفظ</button>
@@ -1760,7 +1760,7 @@
                 <label style="color:var(--yellow-text)">تكلفة الاشتراك:</label>
                 <div style="display:flex; gap:8px;">
                     <input type="number" id="stCost" placeholder="0.00" style="flex:1;">
-                    <select id="stCostCurrency" style="width:130px; flex-shrink:0; text-align:center;"><option value="">اختر العملة</option><option value="₪">₪ شيكل</option><option value="$">$ دولار</option></select>
+                    <select id="stCostCurrency" style="width:130px; flex-shrink:0; text-align:center;"><option value="">اختر العملة</option><option value="£">£ جنيه</option><option value="$">$ دولار</option></select>
                 </div>
             </div>
         </div>
@@ -2866,7 +2866,7 @@ function _initNewDatabase() {
 
 function getDefaultData() {
     return {
-        wallets:  safeJSON(store.wallets,  {"جوال باي — سعاد":{bal:0,cur:"₪",active:true},"جوال باي — محمد":{bal:0,cur:"₪",active:true},"بال باي — أحمد":{bal:0,cur:"₪",active:true},"بايننس — احمد":{bal:0,cur:"$",active:true}}),
+        wallets:  safeJSON(store.wallets,  {"جوال باي — سعاد":{bal:0,cur:"£",active:true},"جوال باي — محمد":{bal:0,cur:"£",active:true},"بال باي — أحمد":{bal:0,cur:"£",active:true},"بايننس — احمد":{bal:0,cur:"$",active:true}}),
         invest:   safeJSON(store.invest,   {ahmad:{d:0,s:0},mohamed:{d:0,s:0},store:{d:0,s:0}}),
         settings: safeJSON(store.settings, {ahmad:0,mohamed:0,store:100,deductCost:false,exchangeRate:0,egpRate:13,logsVis:"all",discountEnabled:true,discountChance:25,discountMin:10,discountMax:20,validityMin:15,validityMax:45}),
         services: safeJSON(store.services, []),
@@ -2890,7 +2890,7 @@ function showModalDetails(details) {
     else if(details.type === 'manual_invest') {
         body.innerHTML += row("العملية", "تعديل حصة شريك");
         body.innerHTML += row("الشريك", esc(details.person));
-        body.innerHTML += row("العملة", details.currency === 'd' ? 'دولار' : 'شيكل');
+        body.innerHTML += row("العملة", details.currency === 'd' ? 'دولار' : 'جنيه مصري');
         body.innerHTML += row("السبب", esc(details.reason));
         body.innerHTML += `<hr style="margin:10px 0; border:0; border-top:1px dashed var(--border-color)">`;
         body.innerHTML += row("قبل التعديل", fix(details.before));
@@ -2935,7 +2935,7 @@ function showModalDetails(details) {
         body.innerHTML += row("السبب", esc(details.reason));
         body.innerHTML += `<hr style="margin:10px 0; border:0; border-top:1px dashed var(--border-color)">`;
         body.innerHTML += `<h4>محفظة السحب: ${esc(details.walletName)}</h4>`;
-        body.innerHTML += row("المبلغ المخصوم", "-"+fix(details.amount) + " " + (details.currency==='$'?'$':'₪'), true, false);
+        body.innerHTML += row("المبلغ المخصوم", "-"+fix(details.amount) + " " + (details.currency==='$'?'$':'£'), true, false);
         body.innerHTML += row("رصيد المحفظة بعد", fix(details.walletAfter));
         body.innerHTML += `<hr style="margin:10px 0; border:0; border-top:1px dashed var(--border-color)">`;
         body.innerHTML += `<h4>رصيد الحصة</h4>`;
@@ -3199,13 +3199,13 @@ function renderBudgetChart() {
     if(receivedEl) {
         if(totalReceivedUSD > 0.001) {
             receivedEl.style.display = '';
-            receivedEl.textContent = `تم استلام: +${fix(totalReceivedUSD)}$ | +${fix(totalReceivedSHK)}₪`;
+            receivedEl.textContent = `تم استلام: +${fix(totalReceivedUSD)}$ | +${fix(totalReceivedSHK)}£`;
         } else { receivedEl.style.display = 'none'; }
     }
     if(spentEl) {
         if(totalSpentUSD > 0.001) {
             spentEl.style.display = '';
-            spentEl.textContent = `تم دفع: -${fix(totalSpentUSD)}$ | -${fix(totalSpentSHK)}₪`;
+            spentEl.textContent = `تم دفع: -${fix(totalSpentUSD)}$ | -${fix(totalSpentSHK)}£`;
         } else { spentEl.style.display = 'none'; }
     }
 
@@ -3220,12 +3220,12 @@ function renderBudgetChart() {
             profitEl.style.display = '';
             profitEl.style.background = 'rgba(99,102,241,0.12)';
             profitEl.style.color = 'var(--primary)';
-            profitEl.textContent = `الأرباح: ${sign}${fix(diffUSD)}$ | ${sign}${fix(diffSHK)}₪`;
+            profitEl.textContent = `الأرباح: ${sign}${fix(diffUSD)}$ | ${sign}${fix(diffSHK)}£`;
         } else {
             profitEl.style.display = '';
             profitEl.style.background = 'rgba(99,102,241,0.12)';
             profitEl.style.color = 'var(--primary)';
-            profitEl.textContent = `الخسائر: ${sign}${fix(diffUSD)}$ | ${sign}${fix(diffSHK)}₪`;
+            profitEl.textContent = `الخسائر: ${sign}${fix(diffUSD)}$ | ${sign}${fix(diffSHK)}£`;
         }
     }
 
@@ -3332,15 +3332,15 @@ function renderBudgetChart() {
     // المحافظ محذوفة — الإجمالي يحسب من العمليات
     safeJSON(store.purchases, []).forEach(p => {
         let pNum = parseFloat((p.paid||'0').replace(/[^0-9.\-]/g,'')) || 0;
-        let pCur = (p.paid||'').replace(/[0-9.\-\s]/g,'').trim() || '₪';
+        let pCur = (p.paid||'').replace(/[0-9.\-\s]/g,'').trim() || '£';
         if(pCur === '$') tUSD += pNum; else tSHK += pNum;
     });
     let el = document.getElementById('budgetTotalDisplay');
     if(isCurrentMonth) {
-        if(el) el.textContent = `إجمالي: ${fix(tUSD + tSHK/rate)}$ | ${fix(tUSD*rate + tSHK)}₪`;
+        if(el) el.textContent = `إجمالي: ${fix(tUSD + tSHK/rate)}$ | ${fix(tUSD*rate + tSHK)}£`;
     } else {
         let endUSD = endBalance;
-        if(el) el.textContent = `إجمالي: ${fix(endUSD)}$ | ${fix(endUSD*rate)}₪`;
+        if(el) el.textContent = `إجمالي: ${fix(endUSD)}$ | ${fix(endUSD*rate)}£`;
     }
 
     // ─── إنشاء/تحديث الـ Chart ───────────────────────────────────
@@ -3691,7 +3691,7 @@ function tryAutoLogin() {
     loginLayer.style.display = "none";
     document.body.classList.remove("locked");
     _doAfterFbAuth(() => {
-      loadWallets(); loadProfitSettings(); loadServices(); loadPurchaseStock(); _initServicesListener(); refreshAll(); applyRBAC();
+      loadWallets(); loadProfitSettings(); loadServices(); loadPurchaseStock(); _initServicesListener(); _initCategoriesListener(); refreshAll(); applyRBAC();
       setTimeout(checkOverdueBookings, 3000);
       document.getElementById("currentUserDisplay").innerHTML = `مرحباً، ${esc(currentUser.username)} (${getRoleName(currentUser.role)})`;
       resetSessionTimer();
@@ -3706,9 +3706,9 @@ function init(){
     if(!store.users) store.users = JSON.stringify([DEFAULT_USER]);
     if(!store.wallets){
         store.wallets = JSON.stringify({
-            "جوال باي — سعاد":{bal:0, cur:"₪", active:true},
-            "جوال باي — محمد":{bal:0, cur:"₪", active:true},
-            "بال باي — أحمد":{bal:0, cur:"₪", active:true},
+            "جوال باي — سعاد":{bal:0, cur:"£", active:true},
+            "جوال باي — محمد":{bal:0, cur:"£", active:true},
+            "بال باي — أحمد":{bal:0, cur:"£", active:true},
             "بايننس — احمد":{bal:0, cur:"$", active:true}
         });
     }
@@ -3730,7 +3730,7 @@ function init(){
 
     if(false) {
         isDemoMode = true;
-        if(document.getElementById("demoModeToggle")) document.getElementById("demoModeToggle").checked = true;
+        /* demoModeToggle removed */
         // إظهار شعار الوضع التجريبي في صفحة الدخول
         let demoBanner = document.getElementById("demoLoginBanner");
         if(demoBanner) demoBanner.style.display = "block";
@@ -3875,7 +3875,7 @@ async function toggleDemoMode() {
     
     if (newState) {
         let ok = await showConfirm("تفعيل الوضع التجريبي", "سيتوقف الربط السحابي، وسيتم أخذ نسخة من بياناتك الحالية لتجرب عليها بحرية. عند الإيقاف سيتم حذف التغييرات التجريبية.", "تفعيل ونسخ البيانات", "إلغاء", '<i class="fas fa-copy"></i>');
-        if(!ok) { document.getElementById("demoModeToggle").checked = false; return; }
+        if(!ok) { const _t=document.getElementById("demoModeToggle"); if(_t) _t.checked=false; return; }
         
         // السر هنا: أخذ نسخة طبق الأصل من البيانات الحقيقية الحالية ووضعها كبيانات تجريبية
         STORE_KEYS.forEach(k => {
@@ -3887,7 +3887,7 @@ async function toggleDemoMode() {
         location.reload();
     } else {
         let ok = await showConfirm("إيقاف الوضع التجريبي", "سيتم التخلص من النسخة التجريبية واستعادة اتصالك ببياناتك الحقيقية في السحابة.", "إيقاف وعودة", "إلغاء", '<i class="fas fa-cloud-download-alt"></i>');
-        if(!ok) { document.getElementById("demoModeToggle").checked = true; return; }
+        if(!ok) { const _t=document.getElementById("demoModeToggle"); if(_t) _t.checked=true; return; }
         
         // مسح النسخة التجريبية بالكامل من المتصفح
         STORE_KEYS.forEach(k => localStorage.removeItem('demo_' + k));
@@ -3937,7 +3937,7 @@ async function attemptLogin() {
         currentUser = demoUser;
         document.getElementById("loginLayer").style.display = "none";
         document.body.classList.remove("locked");
-        loadWallets(); loadProfitSettings(); loadServices(); loadPurchaseStock(); _initServicesListener(); refreshAll(); applyRBAC();
+        loadWallets(); loadProfitSettings(); loadServices(); loadPurchaseStock(); _initServicesListener(); _initCategoriesListener(); refreshAll(); applyRBAC();
         setTimeout(checkOverdueBookings, 3000);
         document.getElementById("currentUserDisplay").innerHTML = `مرحباً، ${esc(currentUser.username)} (${getRoleName(currentUser.role)})`;
         resetSessionTimer();
@@ -3980,7 +3980,7 @@ async function attemptLogin() {
         document.getElementById("loginLayer").style.display = "none";
         document.body.classList.remove("locked");
         _doAfterFbAuth(() => {
-          loadWallets(); loadProfitSettings(); loadServices(); loadPurchaseStock(); _initServicesListener(); refreshAll(); applyRBAC();
+          loadWallets(); loadProfitSettings(); loadServices(); loadPurchaseStock(); _initServicesListener(); _initCategoriesListener(); refreshAll(); applyRBAC();
           setTimeout(checkOverdueBookings, 3000);
           document.getElementById("currentUserDisplay").innerHTML = `مرحباً، ${esc(currentUser.username)} (${getRoleName(currentUser.role)})`;
           resetSessionTimer();
@@ -4437,7 +4437,7 @@ async function deleteOrderActivity(docId) {
     let ok = await showConfirm("حذف سجل", "هل أنت متأكد من حذف هذا السجل نهائياً؟", "حذف", "إلغاء", '<i class="fas fa-trash-alt"></i>');
     if (!ok) return;
     try {
-        await dbOrder.collection("orderActivity").doc(docId).delete();
+        await db.collection("orderActivity").doc(docId).delete();
         orderActivityCache = orderActivityCache.filter(a => a._docId !== docId);
         refreshLogs();
         notify("تم حذف السجل");
@@ -4555,18 +4555,18 @@ async function clearLogs() {
             if (res === 'third') {
                 // مسح آخر 50 (الأقدم في الكاش — مرتبة desc)
                 let toDelete = orderActivityCache.slice(-50);
-                let batch = dbOrder.batch();
-                toDelete.forEach(a => { if(a._docId) batch.delete(dbOrder.collection("orderActivity").doc(a._docId)); });
+                let batch = db.batch();
+                toDelete.forEach(a => { if(a._docId) batch.delete(db.collection("orderActivity").doc(a._docId)); });
                 await batch.commit();
                 orderActivityCache = orderActivityCache.slice(0, orderActivityCache.length - 50);
             } else {
                 // مسح الكل دفعة دفعة
-                let snap = await dbOrder.collection("orderActivity").limit(500).get();
+                let snap = await db.collection("orderActivity").limit(500).get();
                 while (!snap.empty) {
-                    let batch = dbOrder.batch();
+                    let batch = db.batch();
                     snap.docs.forEach(d => batch.delete(d.ref));
                     await batch.commit();
-                    snap = await dbOrder.collection("orderActivity").limit(500).get();
+                    snap = await db.collection("orderActivity").limit(500).get();
                 }
                 orderActivityCache = [];
             }
@@ -4945,7 +4945,7 @@ function addPurchase(){
     }
 
     let originalCost = parseFloat(stItem.cost) || 0;
-    let originalCostCur = stItem.costCurrency || '₪';
+    let originalCostCur = stItem.costCurrency || '£';
     let totalProfiles = parseInt(stItem.totalProfiles) || 1;
     
     let fractionalCostOriginal = originalCost / totalProfiles;
@@ -4954,9 +4954,9 @@ function addPurchase(){
     if (paidCur === originalCostCur) {
         calculatedCost = fractionalCostOriginal;
     } else {
-        if (paidCur === '$' && originalCostCur === '₪') {
+        if (paidCur === '$' && originalCostCur === '£') {
             calculatedCost = fractionalCostOriginal / rate;
-        } else if (paidCur === '₪' && originalCostCur === '$') {
+        } else if (paidCur === '£' && originalCostCur === '$') {
             calculatedCost = fractionalCostOriginal * rate;
         }
     }
@@ -5114,7 +5114,7 @@ function _executePurchase(paid, paidCur, duration, settings, stItem, cleanName, 
     }
 
     // حساب التكلفة الأصلية بالعملة التي تم شراء المخزون بها
-    let originalCostDisplay = fix((parseFloat(stItem.cost) || 0) / (parseInt(stItem.totalProfiles) || 1)) + (stItem.costCurrency || '₪');
+    let originalCostDisplay = fix((parseFloat(stItem.cost) || 0) / (parseInt(stItem.totalProfiles) || 1)) + (stItem.costCurrency || '£');
 
     purchases.push({
         id: 'id_' + Date.now() + '_' + Math.random().toString(36).substr(2,5),
@@ -5189,7 +5189,7 @@ function _executePurchase(paid, paidCur, duration, settings, stItem, cleanName, 
     // ── زيادة راتب الموظف ──────────────────────────────────────────
     if (currentUser && currentUser.role === 'employee' && !isComp && !selectedPledge && distributableProfit > 0) {
         let _bonusRate = rate && rate > 0 ? rate : 3.5;
-        let _profitInShekels = paidCur === '₪' ? distributableProfit : distributableProfit * _bonusRate;
+        let _profitInShekels = paidCur === '£' ? distributableProfit : distributableProfit * _bonusRate;
         calculateEmployeeBonusForSale(_profitInShekels, purchases);
     }
 
@@ -5616,13 +5616,13 @@ function refreshWallets() {
     if(document.getElementById("statSales")) document.getElementById("statSales").textContent = todayCount;
     if(document.getElementById("statMonthSales")) document.getElementById("statMonthSales").textContent = mSales;
     let _egpRate = (settings.egpRate && settings.egpRate > 0) ? settings.egpRate : 13;
-    let _isEgypt = window._userCountry === 'EG';
+    let _isEgypt = true; // المتجر مصري — £ دائماً
     if(document.getElementById("statTodayProfits")) {
         let el = document.getElementById("statTodayProfits");
         if(_isEgypt) {
             el.textContent = (isTodayPositive ? "+" : "-") + fix(Math.abs(tDeltaSHK) * _egpRate) + " £";
         } else {
-            el.textContent = (isTodayPositive ? "+" : "-") + fix(Math.abs(tDeltaSHK)) + " ₪";
+            el.textContent = (isTodayPositive ? "+" : "-") + fix(Math.abs(tDeltaSHK)) + " £";
         }
         el.style.color = isTodayPositive ? "var(--success)" : "var(--danger)";
     }
@@ -5631,7 +5631,7 @@ function refreshWallets() {
         if(_isEgypt) {
             profEl.textContent = (isMonthPositive ? "+" : "-") + fix(Math.abs(mDeltaSHK) * _egpRate) + " £";
         } else {
-            profEl.textContent = (isMonthPositive ? "+" : "-") + fix(Math.abs(mDeltaSHK)) + " ₪";
+            profEl.textContent = (isMonthPositive ? "+" : "-") + fix(Math.abs(mDeltaSHK)) + " £";
         }
         profEl.style.color = isMonthPositive ? "var(--success)" : "var(--danger)";
     }
@@ -5686,13 +5686,13 @@ function refreshHistory(){
             let settings_h = safeJSON(store.settings, {});
             let rate_h = settings_h.exchangeRate && settings_h.exchangeRate > 0 ? settings_h.exchangeRate : 3.5;
             let paidNum = parseFloat((item.paid || '0').replace(/[^0-9.\-]/g, '')) || 0;
-            let paidCurH = (item.paid || '').replace(/[0-9.\-\s]/g, '').trim() || '₪';
+            let paidCurH = (item.paid || '').replace(/[0-9.\-\s]/g, '').trim() || '£';
             let costNum = parseFloat((item.cost || '0').replace(/[^0-9.\-]/g, '')) || 0;
-            let costCurH = (item.cost || '').replace(/[0-9.\-\s]/g, '').trim() || '₪';
+            let costCurH = (item.cost || '').replace(/[0-9.\-\s]/g, '').trim() || '£';
             let costInPaidCur = costNum;
             if (paidCurH !== costCurH) {
-                if (paidCurH === '$' && costCurH === '₪') costInPaidCur = costNum / rate_h;
-                else if (paidCurH === '₪' && costCurH === '$') costInPaidCur = costNum * rate_h;
+                if (paidCurH === '$' && costCurH === '£') costInPaidCur = costNum / rate_h;
+                else if (paidCurH === '£' && costCurH === '$') costInPaidCur = costNum * rate_h;
             }
             let profit = paidNum - costInPaidCur;
             let sign = profit >= 0 ? '+' : '';
@@ -5727,7 +5727,7 @@ function refreshInvestment(){
 
     // ─── بطاقة رأس المال — إجمالي منفصل ────────────────────────
     let usdDisplay  = isRestricted ? '****' : `${fix(totalUSD)} $`;
-    let shklDisplay = isRestricted ? '****' : `${fix(totalShekel)} ₪`;
+    let shklDisplay = isRestricted ? '****' : `${fix(totalShekel)} £`;
     document.getElementById("investBox").innerHTML = `
     <div style="background:var(--bg-input); border:1px solid var(--border-color); border-radius:var(--radius-xl); padding:24px 28px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px;">
         <div style="display:flex; align-items:center; gap:14px;">
@@ -6302,9 +6302,9 @@ function calculateTransfer() {
         
         if(fromCur === toCur) {
             result = net; 
-        } else if (fromCur === '$' && toCur === '₪') {
+        } else if (fromCur === '$' && toCur === '£') {
             result = net * rate;
-        } else if (fromCur === '₪' && toCur === '$') {
+        } else if (fromCur === '£' && toCur === '$') {
             result = net / rate;
         }
     }
@@ -6358,7 +6358,7 @@ function confirmTransfer() {
     body += `<div style="padding:10px; background:var(--bg-card); border-radius:10px; border:1px solid var(--border-color); font-size:13px; display:grid; gap:5px;">
         <div style="display:flex; justify-content:space-between;"><span style="color:var(--text-muted)">المبلغ المحوَّل:</span><span style="font-weight:800">${fmtBal(amount, fromCur)}</span></div>
         ${fee > 0 ? `<div style="display:flex; justify-content:space-between;"><span style="color:var(--text-muted)">العمولة:</span><span style="font-weight:700; color:var(--danger)">-${fmtBal(fee, fromCur)}</span></div>` : ''}
-        ${fromCur !== toCur ? `<div style="display:flex; justify-content:space-between;"><span style="color:var(--text-muted)">سعر الصرف:</span><span style="font-weight:700">1$ = ${rate}₪</span></div>` : ''}
+        ${fromCur !== toCur ? `<div style="display:flex; justify-content:space-between;"><span style="color:var(--text-muted)">سعر الصرف:</span><span style="font-weight:700">1$ = ${rate}£</span></div>` : ''}
         <div style="display:flex; justify-content:space-between; padding-top:5px; border-top:1px dashed var(--border-color);"><span style="color:var(--text-muted)">الصافي للمستلم:</span><span style="font-weight:800; color:var(--success)">${fmtBal(result, toCur)}</span></div>
     </div>`;
 
@@ -6509,7 +6509,7 @@ async function setProfitShare() {
     if(syncType === 'closed') {
         let wallets=safeJSON(store.wallets, {});
         let opts = "";
-        let expectedCurSymbol = currency === 'd' ? '$' : '₪';
+        let expectedCurSymbol = currency === 'd' ? '$' : '£';
         Object.keys(wallets).forEach(w => { if(wallets[w].cur === expectedCurSymbol) opts += `<option value="${w}">${w}</option>`; });
         if(!opts) return notify(`لا يوجد محافظ بعمله ${expectedCurSymbol}`, "error");
         
@@ -6540,7 +6540,7 @@ async function setProfitShare() {
     const _iPIncs = { [`${person}.${currency}`]: diff };
     if (syncType === 'closed') {
         // الـ wallet يُعدَّل أيضاً بـ increment ذري
-        const _walletCur = currency === 'd' ? '$' : '₪';
+        const _walletCur = currency === 'd' ? '$' : '£';
         const _wPIncs = { [targetWallet]: diff };
         store.wallets = JSON.stringify(w);
         fbAtomicWalletInvest(_wPIncs, _iPIncs, w, invest);
@@ -6896,7 +6896,16 @@ function closeRemoveBuyerModal() {
 let adminCategoriesCache = [];
 let _catUnsubscribe = null;
 
-function _initCategoriesListener() { /* removed */ }
+function _initCategoriesListener() {
+    if (!db) return;
+    db.collection("categories").onSnapshot(snap => {
+        adminCategoriesCache = snap.docs.map(d => ({ _docId: d.id, ...d.data() }));
+        adminCategoriesCache.sort((a, b) => (a.sortOrder || 0) - (b.sortOrder || 0));
+        renderCategoriesGrid();
+        renderServicesMain();
+        _refreshCategoryDropdown();
+    }, err => console.warn("categories listener:", err));
+}
 
 function _refreshCategoryDropdown() {
     let sel = document.getElementById("svcCategory");
@@ -6940,8 +6949,8 @@ function renderServicesMain() {
         }
         let hasBranches = s.hasBranches && s.branches && s.branches.length > 1;
         let branchInfo = hasBranches
-            ? s.branches.map(b => `<span style="font-size:11px; color:var(--text-muted); background:var(--bg-input); padding:2px 8px; border-radius:6px;">${esc(b.name)}: ${b.price}₪</span>`).join(' ')
-            : `<span style="font-size:11px; color:var(--text-muted);">${s.price||0}₪</span>`;
+            ? s.branches.map(b => `<span style="font-size:11px; color:var(--text-muted); background:var(--bg-input); padding:2px 8px; border-radius:6px;">${esc(b.name)}: ${b.price}£</span>`).join(' ')
+            : `<span style="font-size:11px; color:var(--text-muted);">${s.price||0}£</span>`;
         let delBtn = isAdmin ? `<button class="btn btn-danger" style="padding:4px 10px; font-size:12px;" onclick="deleteServiceById('${s._docId}','${esc(s.name)}')"><i class="fas fa-trash"></i></button>` : '';
         let editBtn = isAdmin ? `<button class="btn btn-warning" style="padding:4px 10px; font-size:12px; color:#000;" onclick="openEditServiceModal('${s._docId}')"><i class="fas fa-edit"></i></button>` : '';
         div.innerHTML += `<div style="display:flex; align-items:center; gap:10px; padding:12px 16px; background:var(--bg-input); border:1px solid var(--border-color); border-radius:var(--radius-md); flex-wrap:wrap;">
@@ -7003,11 +7012,11 @@ async function saveCategoryModal() {
     let id = document.getElementById("catModalId").value;
     try {
         if (id) {
-            await dbOrder.collection("categories").doc(id).update({ name });
+            await db.collection("categories").doc(id).update({ name });
             notify("تم تحديث القسم");
         } else {
             let maxOrder = adminCategoriesCache.reduce((m, c) => Math.max(m, c.sortOrder || 0), 0);
-            await dbOrder.collection("categories").add({ name, sortOrder: maxOrder + 1 });
+            await db.collection("categories").add({ name, sortOrder: maxOrder + 1 });
             notify("تمت إضافة القسم");
         }
         document.getElementById("categoryModal").style.display = "none";
@@ -7025,7 +7034,7 @@ async function deleteCat(docId, name) {
     for (let s of adminServicesCache.filter(s => s.categoryId === docId)) {
         await db.collection("services").doc(s._docId).update({ categoryId: "" });
     }
-    await dbOrder.collection("categories").doc(docId).delete();
+    await db.collection("categories").doc(docId).delete();
     logAction(`حذف قسم: ${name}`, 'danger');
     notify("تم حذف القسم");
 }
@@ -7042,8 +7051,8 @@ async function moveCat(docId, dir) {
     b.sortOrder = tempOrder;
     renderCategoriesGrid();
     try {
-        await dbOrder.collection("categories").doc(a._docId).update({ sortOrder: a.sortOrder });
-        await dbOrder.collection("categories").doc(b._docId).update({ sortOrder: b.sortOrder });
+        await db.collection("categories").doc(a._docId).update({ sortOrder: a.sortOrder });
+        await db.collection("categories").doc(b._docId).update({ sortOrder: b.sortOrder });
     } catch(e) {
         a.sortOrder = b.sortOrder;
         b.sortOrder = tempOrder;
@@ -7068,7 +7077,7 @@ function openCatServicesModal(catId) {
             body.innerHTML += `<div style="display:flex; align-items:center; gap:10px; padding:10px 14px; background:var(--bg-input); border:1px solid var(--border-color); border-radius:10px;">
                 <div style="display:flex; flex-direction:column; gap:2px;">${upBtn}${downBtn}</div>
                 <span style="flex:1; font-weight:700; font-size:14px;">${esc(s.name)}</span>
-                <span style="font-size:12px; color:var(--text-muted);">${s.price||0}₪</span>
+                <span style="font-size:12px; color:var(--text-muted);">${s.price||0}£</span>
             </div>`;
         });
     }
@@ -7645,8 +7654,8 @@ function renderServicesSettings() {
     sortedServices.forEach((s, idx) => {
         let hasBranches = s.hasBranches && s.branches && s.branches.length > 1;
         let branchInfo = hasBranches
-            ? s.branches.map(b => `<span style="font-size:11px; color:var(--text-muted); background:var(--bg-input); padding:2px 8px; border-radius:6px;">${esc(b.name)}: ${b.price}₪</span>`).join(' ')
-            : `<span style="font-size:11px; color:var(--text-muted);">${s.price||0}₪</span>`;
+            ? s.branches.map(b => `<span style="font-size:11px; color:var(--text-muted); background:var(--bg-input); padding:2px 8px; border-radius:6px;">${esc(b.name)}: ${b.price}£</span>`).join(' ')
+            : `<span style="font-size:11px; color:var(--text-muted);">${s.price||0}£</span>`;
 
         let delBtn = isAdmin ? `<button class="btn btn-danger" style="padding:4px 10px; font-size:12px;" onclick="deleteServiceById('${s._docId}','${esc(s.name)}')"><i class="fas fa-trash"></i></button>` : '';
         let editBtn = isAdmin ? `<button class="btn btn-warning" style="padding:4px 10px; font-size:12px; color:#000;" onclick="openEditServiceModal('${s._docId}')"><i class="fas fa-edit"></i></button>` : '';
@@ -7693,20 +7702,21 @@ function openAddServiceModal() {
     if (currentUser.role !== 'admin') return notify("للأدمن فقط", "error");
     document.getElementById("editServiceDocId").value = "";
     _refreshCategoryDropdown();
-    document.getElementById("svcCategory").value = "";
-    document.getElementById("addServiceModalTitle").innerHTML = '<i class="fas fa-plus-circle" style="color:var(--primary)"></i> إضافة خدمة جديدة';
-    document.getElementById("svcName").value = "";
-    document.getElementById("svcDesc").value = "";
-    if (document.getElementById("svcIcon")) document.getElementById("svcIcon").value = "";
-    document.getElementById("svcIconUrl").value = "";
-    document.getElementById("svcHasDiscount").checked = false;
-    document.getElementById("svcOriginalPriceDiv").style.display = "none";
-    document.getElementById("svcOriginalPrice").value = "";
-    document.getElementById("svcBadge").value = "";
-    document.getElementById("svcBranchCount").disabled = false;
-    document.getElementById("svcBranchCount").value = "1";
-    renderBranchInputs();
-    document.getElementById("addServiceModal").style.display = "flex";
+    const _g = id => document.getElementById(id);
+    if(_g("svcCategory"))          _g("svcCategory").value = "";
+    if(_g("addServiceModalTitle")) _g("addServiceModalTitle").innerHTML = '<i class="fas fa-plus-circle" style="color:var(--primary)"></i> إضافة خدمة جديدة';
+    if(_g("svcName"))              _g("svcName").value = "";
+    if(_g("svcDesc"))              _g("svcDesc").value = "";
+    if(_g("svcIcon"))              _g("svcIcon").value = "";
+    if(_g("svcIconUrl"))           _g("svcIconUrl").value = "";
+    if(_g("svcHasDiscount"))       _g("svcHasDiscount").checked = false;
+    if(_g("svcOriginalPriceDiv"))  _g("svcOriginalPriceDiv").style.display = "none";
+    if(_g("svcOriginalPrice"))     _g("svcOriginalPrice").value = "";
+    if(_g("svcBadge"))             _g("svcBadge").value = "";
+    if(_g("svcBranchCount"))     { _g("svcBranchCount").disabled = false; _g("svcBranchCount").value = "1"; }
+    if(_g("branchInputsContainer")) renderBranchInputs();
+    if(_g("editServiceDocId"))     _g("editServiceDocId").value = "";
+    if(_g("addServiceModal"))      _g("addServiceModal").style.display = "flex";
 }
 
 function openEditServiceModal(docId) {
@@ -7714,40 +7724,39 @@ function openEditServiceModal(docId) {
     let s = adminServicesCache.find(x => x._docId === docId);
     if (!s) return notify("لم يُعثر على الخدمة", "error");
 
-    document.getElementById("editServiceDocId").value = docId;
-    document.getElementById("addServiceModalTitle").innerHTML = '<i class="fas fa-edit" style="color:var(--warning)"></i> تعديل خدمة';
-    document.getElementById("svcName").value = s.name || "";
-    document.getElementById("svcDesc").value = s.description || "";
-    if (document.getElementById("svcIcon")) document.getElementById("svcIcon").value = s.icon || "";
-    document.getElementById("svcIconUrl").value = s.iconUrl || "";
-    document.getElementById("svcHasDiscount").checked = !!s.hasDiscount;
-    document.getElementById("svcOriginalPriceDiv").style.display = s.hasDiscount ? "block" : "none";
-    document.getElementById("svcOriginalPrice").value = s.originalPrice || "";
-    document.getElementById("svcBadge").value = s.badge || "";
+    const _ge = id => document.getElementById(id);
+    if(_ge("editServiceDocId"))     _ge("editServiceDocId").value = docId;
+    if(_ge("addServiceModalTitle")) _ge("addServiceModalTitle").innerHTML = '<i class="fas fa-edit" style="color:var(--warning)"></i> تعديل خدمة';
+    if(_ge("svcName"))              _ge("svcName").value = s.name || "";
+    if(_ge("svcDesc"))              _ge("svcDesc").value = s.description || "";
+    if(_ge("svcIcon"))              _ge("svcIcon").value = s.icon || "";
+    if(_ge("svcIconUrl"))           _ge("svcIconUrl").value = s.iconUrl || "";
+    if(_ge("svcHasDiscount"))       _ge("svcHasDiscount").checked = !!s.hasDiscount;
+    if(_ge("svcOriginalPriceDiv"))  _ge("svcOriginalPriceDiv").style.display = s.hasDiscount ? "block" : "none";
+    if(_ge("svcOriginalPrice"))     _ge("svcOriginalPrice").value = s.originalPrice || "";
+    if(_ge("svcBadge"))             _ge("svcBadge").value = s.badge || "";
     _refreshCategoryDropdown();
-    document.getElementById("svcCategory").value = s.categoryId || "";
+    if(_ge("svcCategory"))          _ge("svcCategory").value = s.categoryId || "";
     
 
     _editServicePriceOnRequest = !!s.priceOnRequest;
     _editBranches = (s.branches && s.branches.length > 0) ? [...s.branches] : [{}];
-    document.getElementById("svcBranchCount").disabled = true;
-    renderEditBranchInputs();
-
-
-    document.getElementById("addServiceModal").style.display = "flex";
+    if(document.getElementById("svcBranchCount")) document.getElementById("svcBranchCount").disabled = true;
+    if(document.getElementById("branchInputsContainer")) renderEditBranchInputs();
+    if(document.getElementById("addServiceModal")) document.getElementById("addServiceModal").style.display = "flex";
 }
 
 async function saveServiceModal() {
     let editDocId = document.getElementById("editServiceDocId").value.trim();
     if (editDocId) {
         // وضع التعديل — نفس منطق saveNewService لكن update بدل add
-        let name = document.getElementById("svcName").value.trim();
+        let name = (document.getElementById("svcName")?.value || "").trim();
         if (!name) return notify("أدخل اسم الخدمة", "error");
         let icon = document.getElementById("svcIcon")?.value.trim() || "cube";
-        let badge = document.getElementById("svcBadge").value;
-        let count = parseInt(document.getElementById("svcBranchCount").value) || 1;
-        let mainDesc = document.getElementById("svcDesc")?.value.trim() || "";
-        let iconUrl = document.getElementById("svcIconUrl")?.value.trim() || "";
+        let badge = document.getElementById("svcBadge")?.value || "";
+        let count = parseInt(document.getElementById("svcBranchCount")?.value) || 1;
+        let mainDesc = document.getElementById("svcDesc")?.value?.trim() || "";
+        let iconUrl = document.getElementById("svcIconUrl")?.value?.trim() || "";
         let hasDiscount = document.getElementById("svcHasDiscount")?.checked || false;
         let originalPrice = hasDiscount ? (parseFloat(document.getElementById("svcOriginalPrice")?.value) || 0) : 0;
         let categoryId = document.getElementById("svcCategory")?.value || "";
@@ -7796,8 +7805,9 @@ async function saveServiceModal() {
 }
 
 function renderBranchInputs() {
-    let count = parseInt(document.getElementById("svcBranchCount").value) || 1;
+    let count = parseInt(document.getElementById("svcBranchCount")?.value) || 1;
     let container = document.getElementById("branchInputsContainer");
+    if (!container) return;
     container.innerHTML = "";
     if (count === 1) {
         container.innerHTML = `
@@ -7808,7 +7818,7 @@ function renderBranchInputs() {
                 <label for="b_priceOnRequest_0" style="margin:0; cursor:pointer; font-weight:bold; color:var(--info);">السعر حسب الطلب؟</label>
             </div>
             <div class="input-group" id="price_div_0">
-                <label>السعر (₪) *</label>
+                <label>السعر (£) *</label>
                 <input type="number" id="b_price_0" placeholder="0">
             </div>
             <div class="input-group">
@@ -7838,7 +7848,7 @@ function renderBranchInputs() {
                     <input id="b_name_${i}" placeholder="مثلاً: شهري">
                 </div>
                 <div class="input-group">
-                    <label>السعر (₪) *</label>
+                    <label>السعر (£) *</label>
                     <input type="number" id="b_price_${i}" placeholder="0">
                 </div>
                 <div class="input-group">
@@ -7864,6 +7874,7 @@ function renderBranchInputs() {
 
 function renderEditBranchInputs() {
     let container = document.getElementById("branchInputsContainer");
+    if (!container) return;
     container.innerHTML = "";
     _editBranches.forEach((b, i) => {
         let isBooking = !!b.isBooking;
@@ -7890,11 +7901,11 @@ function renderEditBranchInputs() {
                 <label for="eb_priceOnRequest_0" style="margin:0; cursor:pointer; font-weight:bold; color:var(--info);">السعر حسب الطلب؟</label>
             </div>
             <div class="input-group" id="eb_price_div_0" style="${_editServicePriceOnRequest?'display:none':''}">
-                <label>السعر (₪) *</label>
+                <label>السعر (£) *</label>
                 <input type="number" id="eb_price_${i}" value="${b.price||0}">
             </div>` : `
             <div class="input-group">
-                <label>السعر (₪) *</label>
+                <label>السعر (£) *</label>
                 <input type="number" id="eb_price_${i}" value="${b.price||0}">
             </div>`}
             <div class="input-group">
@@ -7945,30 +7956,31 @@ function genCode(inputId) {
 }
 
 async function saveNewService() {
-    let name = document.getElementById("svcName").value.trim();
+    let name = (document.getElementById("svcName")?.value || "").trim();
     if (!name) return notify("أدخل اسم الخدمة", "error");
     let icon = document.getElementById("svcIcon")?.value.trim() || "cube";
-    let badge = document.getElementById("svcBadge").value;
-    let count = parseInt(document.getElementById("svcBranchCount").value) || 1;
+    let badge = document.getElementById("svcBadge")?.value || "";
+    let count = parseInt(document.getElementById("svcBranchCount")?.value) || 1;
 
-    let iconUrl = document.getElementById("svcIconUrl")?.value.trim() || "";
+    let iconUrl = document.getElementById("svcIconUrl")?.value?.trim() || "";
     let hasDiscount = document.getElementById("svcHasDiscount")?.checked || false;
     let originalPrice = hasDiscount ? (parseFloat(document.getElementById("svcOriginalPrice")?.value) || 0) : 0;
     let categoryId = document.getElementById("svcCategory")?.value || "";
     let svcObj = { name, icon, badge, iconUrl, hasDiscount, originalPrice, categoryId };
 
     // جلب الوصف العام من الحقل الجديد
-    let mainDesc = document.getElementById("svcDesc") ? document.getElementById("svcDesc").value.trim() : "";
+    let mainDesc = document.getElementById("svcDesc")?.value?.trim() || "";
     svcObj.description = mainDesc;
 
+    const _genCode = () => Math.floor(100000000 + Math.random() * 900000000).toString();
     let bookingBranchesCount = 0;
     if (count === 1) {
         let priceOnRequest = document.getElementById("b_priceOnRequest_0")?.checked || false;
-        let price = priceOnRequest ? 0 : (parseFloat(document.getElementById("b_price_0").value) || 0);
-        let code = document.getElementById("b_code_0").value.trim();
-        let isBooking = document.getElementById("b_isBooking_0").checked;
-        let capacity = parseInt(document.getElementById("b_capacity_0").value) || 0;
-        if (!code || code.length !== 9) return notify("الكود يجب أن يكون 9 أرقام", "error");
+        let price = priceOnRequest ? 0 : (parseFloat(document.getElementById("b_price_0")?.value) || 0);
+        let code = (document.getElementById("b_code_0")?.value || "").trim();
+        if (!code || code.length !== 9) code = _genCode();
+        let isBooking = document.getElementById("b_isBooking_0")?.checked || false;
+        let capacity = parseInt(document.getElementById("b_capacity_0")?.value) || 0;
         if (isBooking && capacity < 1) return notify("يجب تحديد سعة حجز صحيحة", "error");
         svcObj.hasBranches = false;
         svcObj.price = price;
@@ -7981,10 +7993,10 @@ async function saveNewService() {
             let bName = (document.getElementById(`b_name_${i}`)?.value||'').trim();
             let bPrice = parseFloat(document.getElementById(`b_price_${i}`)?.value) || 0;
             let bCode = (document.getElementById(`b_code_${i}`)?.value||'').trim();
-            let isBooking = document.getElementById(`b_isBooking_${i}`).checked;
-            let capacity = parseInt(document.getElementById(`b_capacity_${i}`).value) || 0;
+            if (!bCode || bCode.length !== 9) bCode = _genCode();
+            let isBooking = document.getElementById(`b_isBooking_${i}`)?.checked || false;
+            let capacity = parseInt(document.getElementById(`b_capacity_${i}`)?.value) || 0;
             if (!bName) return notify(`أدخل اسم الفرع ${i+1}`, "error");
-            if (!bCode || bCode.length !== 9) return notify(`كود الفرع ${i+1} يجب أن يكون 9 أرقام`, "error");
             if (isBooking) {
                 if(capacity < 1) return notify(`حدد سعة الحجز للفرع ${i+1}`, "error");
                 bookingBranchesCount++;
@@ -8048,6 +8060,7 @@ function deleteService(idx) { notify("استخدم زر الحذف بجانب ك
 //  إدارة الطلبات (Firebase collection: "orders")
 // ══════════════════════════════════════════════════════════════
 function refreshOrders() {
+    if (!document.getElementById("ordersBody")) return;
     let search = (document.getElementById("ordersSearch")?.value||"").toLowerCase();
     let tbody = document.getElementById("ordersBody");
     let bookingsContainer = document.getElementById("bookingsContainer");
@@ -8100,7 +8113,7 @@ function refreshOrders() {
         }
 
         let codeCell = `<span style="cursor:pointer; color:var(--primary); font-weight:800; letter-spacing:1px; text-decoration:underline;" onclick="showBranchDetail('${esc(o.serviceCode||'')}','${esc(o.serviceName||'')}')">${esc(o.serviceCode||'—')}</span>`;
-        let price = o.amount !== undefined ? `${o.amount}₪` : '—';
+        let price = o.amount !== undefined ? `${o.amount}£` : '—';
         let notes = o.notes ? `<span title="${esc(o.notes)}" style="cursor:help; color:var(--text-muted);"><i class="fas fa-sticky-note"></i></span>` : '—';
         
         let confirmBtn = '—';
@@ -8142,7 +8155,7 @@ function refreshOrders() {
                     <div style="display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.05); font-size:13px;">
                         <div>
                             <span style="font-weight:bold; color:var(--text-main);">${idx+1}. ${esc(ord.customerName)}</span>
-                            <div style="color:var(--text-muted); font-size:11px;">${esc(ord.phone)} - ${ord.amount} ₪</div>
+                            <div style="color:var(--text-muted); font-size:11px;">${esc(ord.phone)} - ${ord.amount} £</div>
                         </div>
                     </div>
                 `).join('');
@@ -8278,7 +8291,7 @@ async function executeConfirmBooking() {
     try {
         let order = ordersCache.find(o => o._docId === orderId);
         // تحديث الطلب: booked + حفظ بيانات الدفع
-        await dbOrder.collection("orders").doc(orderId).update({
+        await db.collection("orders").doc(orderId).update({
             status: 'booked',
             paidWallet: walletName,
             paidStr: `${amount}${paidCur}`,
@@ -8439,7 +8452,7 @@ async function executeBookingDelivery() {
         // تسجيل كل طلب في السجل المالي — المحفظة والمبلغ تم تسجيلها عند confirmBooking
         for (let ord of grp.orders) {
             let amount = parseFloat(ord.amount) || 0;
-            let paidStr = ord.paidStr || `${amount}₪`;
+            let paidStr = ord.paidStr || `${amount}£`;
             let walletName = ord.paidWallet || '';
 
             let purchaseId = genId();
@@ -8467,7 +8480,7 @@ async function executeBookingDelivery() {
                 isComp: false,
                 canBeUndone: false
             });
-            await dbOrder.collection("orders").doc(ord._docId).delete();
+            await db.collection("orders").doc(ord._docId).delete();
         }
 
         // تصفير عداد الحجز في الخدمة
@@ -8495,7 +8508,7 @@ async function executeBookingDelivery() {
         let _bdSettings = safeJSON(store.settings, {});
         let _bdRate = _bdSettings.exchangeRate > 0 ? _bdSettings.exchangeRate : 3.5;
         let _bdTotal = grp.orders.reduce((s, o) => s + (parseFloat(o.paidAmount || o.amount) || 0), 0);
-        let _bdCur = (grp.orders[0]?.paidStr || '₪').replace(/[\d.]/g,'').trim() || '₪';
+        let _bdCur = (grp.orders[0]?.paidStr || '£').replace(/[\d.]/g,'').trim() || '£';
         recordBudgetEvent('purchase', `تسليم حجوزات: ${grp.serviceName}`, _bdCur === '$' ? _bdTotal : _bdTotal / _bdRate, {
             type: 'booking_delivery', serviceName: grp.serviceName, count: grp.orders.length
         });
@@ -8527,7 +8540,7 @@ function showBranchDetail(code, serviceName) {
             <div style="display:flex; justify-content:space-between;"><span style="color:var(--text-muted);">الخدمة</span><strong>${esc(found.svcName)}</strong></div>
             <div style="display:flex; justify-content:space-between;"><span style="color:var(--text-muted);">الفرع</span><strong>${esc(found.name)}</strong></div>
             <div style="display:flex; justify-content:space-between;"><span style="color:var(--text-muted);">الوصف</span><span>${esc(found.description||'—')}</span></div>
-            <div style="display:flex; justify-content:space-between;"><span style="color:var(--text-muted);">السعر</span><strong style="color:var(--accent)">${found.price}₪</strong></div>
+            <div style="display:flex; justify-content:space-between;"><span style="color:var(--text-muted);">السعر</span><strong style="color:var(--accent)">${found.price}£</strong></div>
             <div style="display:flex; justify-content:space-between;"><span style="color:var(--text-muted);">الكود</span><strong style="letter-spacing:2px; color:var(--primary);">${esc(code)}</strong></div>`;
     } else {
         body.innerHTML = `<div style="color:var(--text-muted); text-align:center; padding:20px;"><i class="fas fa-search"></i><br>كود ${esc(code)} — ${esc(serviceName)}<br><small>لم يُعثر على بيانات الفرع في قاعدة البيانات</small></div>`;
@@ -8539,8 +8552,8 @@ async function deleteAllOrders() {
     let ok = await showConfirm("حذف جميع الطلبات", "هل أنت متأكد من حذف جميع الطلبات الواردة نهائياً؟ لا يمكن التراجع.", "حذف الكل", "إلغاء", '<i class="fas fa-exclamation-triangle"></i>');
     if (!ok) return;
     try {
-        let snapshot = await dbOrder.collection("orders").get();
-        let batch = dbOrder.batch();
+        let snapshot = await db.collection("orders").get();
+        let batch = db.batch();
         snapshot.docs.forEach(doc => batch.delete(doc.ref));
         await batch.commit();
         logAction("حذف جميع الطلبات الواردة", 'danger');
@@ -8582,7 +8595,7 @@ async function deleteOrder(docId) {
             }
         }
 
-        await dbOrder.collection("orders").doc(docId).delete();
+        await db.collection("orders").doc(docId).delete();
         logAction("حذف طلب وارد", 'danger');
         notify("تم حذف الطلب");
     } catch(e) {
@@ -8638,7 +8651,7 @@ async function executeDelivery() {
     let serviceName = document.getElementById("dlvServiceName").value;
     let stockId = document.getElementById("dlvStock").value;
     let amount = parseFloat(document.getElementById("dlvAmount").value);
-    let paidCur = document.getElementById("dlvCurrencyLabel")?.textContent || '₪';
+    let paidCur = document.getElementById("dlvCurrencyLabel")?.textContent || '£';
     let discountCode = document.getElementById("dlvDiscount").value.trim();
 
     let noExpiry = document.getElementById('dlvNoExpiry')?.checked;
@@ -8695,7 +8708,7 @@ async function executeDelivery() {
         sub: serviceName,
         duration: '0',
         paid: `${amount}${paidCur}`,
-        cost: itemCost > 0 ? String(itemCost) + (stItem_pre?.costCurrency || '₪') : '0',
+        cost: itemCost > 0 ? String(itemCost) + (stItem_pre?.costCurrency || '£') : '0',
         wallet: walletName,
         isComp: false,
         discountCode: discountCode || null,
@@ -8786,7 +8799,7 @@ async function executeDelivery() {
     fbSave("vipCustomers", vips);
 
     // حذف الطلب من orders
-    try { await dbOrder.collection("orders").doc(docId).delete(); } catch(e) {}
+    try { await db.collection("orders").doc(docId).delete(); } catch(e) {}
 
     logAction(`تأكيد تسليم طلب: ${serviceName} للعميل ${customerName||customerPhone}`, 'financial', {
         type: 'order_delivery', serviceName, customerName, customerPhone, amount, paidCur, wallet: walletName
@@ -9275,10 +9288,16 @@ function loadPledgesIntoSelect() {
 window._userCountry = null;
 (async function detectCountry(){
     try {
-        let r = await fetch('https://ipapi.co/json/');
+        let r = await fetch('https://api.country.is/');
         let d = await r.json();
-        window._userCountry = d.country_code || null;
-    } catch(e) { window._userCountry = null; }
+        window._userCountry = d.country || null;
+    } catch(e) {
+        try {
+            let r2 = await fetch('https://ipwho.is/');
+            let d2 = await r2.json();
+            window._userCountry = d2.country_code || null;
+        } catch(e2) { window._userCountry = null; }
+    }
 })();
 
 // ─────────────────────────────────────────
@@ -9302,10 +9321,7 @@ function refreshEmployeeBonus() {
     let bonus = _getEmpBonusStore();
     let settings = safeJSON(store.settings, {});
     let egpRate = (settings.egpRate && settings.egpRate > 0) ? settings.egpRate : 13;
-    let isEgypt = window._userCountry === 'EG';
-    let displayVal = isEgypt
-        ? '+' + fix(bonus.totalShekels * egpRate) + ' £'
-        : '+' + fix(bonus.totalShekels) + ' ₪';
+    let displayVal = '+' + fix(bonus.totalShekels * egpRate) + ' £';
     if (bonus.totalShekels < 0) displayVal = displayVal.replace('+', '');
 
     let empEl = document.getElementById('statEmployeeBonus');
@@ -9345,7 +9361,7 @@ function adjustEmployeeBonus() {
     _saveEmpBonus(obj);
     document.getElementById('empBonusAdjust').value = '';
     refreshEmployeeBonus();
-    notify(val > 0 ? `تمت إضافة ${val} ₪ لزيادة الراتب` : `تم خصم ${Math.abs(val)} ₪ من زيادة الراتب`);
+    notify(val > 0 ? `تمت إضافة ${val} £ لزيادة الراتب` : `تم خصم ${Math.abs(val)} £ من زيادة الراتب`);
 }
 
 function openNotifModal(userId) {
