@@ -1388,25 +1388,7 @@
     <div id="investment" class="card hidden">
         <h3><i class="fas fa-money-bill-wave" style="color:var(--primary)"></i> سحب أموال</h3>
 
-        <!-- زيادة راتب الموظف - للأدمن فقط -->
-        <div id="empBonusAdminBox" class="inner-box" style="max-width:500px; margin:0 auto 24px auto; border:2px solid rgba(234,179,8,0.4);">
-            <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
-                <div style="width:38px; height:38px; border-radius:12px; background:rgba(234,179,8,0.15); display:flex; align-items:center; justify-content:center; color:#eab308; font-size:17px;"><i class="fas fa-coins"></i></div>
-                <div>
-                    <div style="font-size:13px; color:var(--text-muted); font-weight:700;">زيادة راتب الموظف — هذا الشهر</div>
-                    <div id="empBonusAdminValue" style="font-size:22px; font-weight:900; color:#eab308;">0 £</div>
-                </div>
-            </div>
-            <div style="border-top:1px dashed var(--border-color); padding-top:14px;">
-                <label style="font-size:13px; color:var(--text-muted); font-weight:700; display:block; margin-bottom:8px;">تعديل الزيادة (زيادة أو خصم)</label>
-                <div style="display:flex; gap:8px; align-items:center;">
-                    <input type="number" id="empBonusAdjust" placeholder="مثال: 10 أو -5" step="0.01" style="flex:1;">
-                    <span style="font-weight:800; color:var(--text-muted);">£</span>
-                    <button class="btn btn-warning" style="white-space:nowrap;" onclick="adjustEmployeeBonus()"><i class="fas fa-edit"></i> تطبيق</button>
-                </div>
-                <div style="font-size:11px; color:var(--text-muted); margin-top:6px;">أدخل رقم موجب للزيادة أو سالب للخصم</div>
-            </div>
-        </div>
+
 
         <div class="inner-box" style="max-width:500px; margin:0 auto;">
             <div class="input-group">
@@ -1536,13 +1518,7 @@
                         <button class="btn btn-primary" onclick="saveProfitSettings()">حفظ</button>
                     </div>
                 </div>
-                <div class="input-group" style="margin-top:15px;">
-                    <label>سعر الجنيه المصري مقابل الدولار (1$ = ؟ جنيه)</label>
-                    <div style="display:flex; align-items:center; gap:10px">
-                        <input type="number" id="setEgpRate" placeholder="مثلاً 13" step="0.01">
-                        <button class="btn btn-primary" onclick="saveProfitSettings()">حفظ</button>
-                    </div>
-                </div>
+
             </div>
         </div>
 
